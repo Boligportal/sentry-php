@@ -911,7 +911,8 @@ class Raven_Client
      */
     private function send_http_asynchronous_curl_exec($url, $data, $headers)
     {
-        exec($this->buildCurlCommand($url, $data, $headers));
+        $cmd = $this->buildCurlCommand($url, $data, $headers);
+        exec($cmd);
         return true; // The exec method is just fire and forget, so just assume it always works
     }
 
